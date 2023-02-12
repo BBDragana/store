@@ -16,7 +16,7 @@
     
             $db->query($sql_query);
         
-            setcookie('UserName', $_POST['username'], time() + 3600);
+            setcookie('username', $_POST['username'], time() + 3600);
             header("Location: index.php");
 
         

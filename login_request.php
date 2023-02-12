@@ -9,7 +9,7 @@
         $response = $db->query($sql_query);
 
         if($response->num_rows == 1 && $response->fetch_assoc()['Password'] == $_POST['password']){
-            setcookie('UserName', $_POST['username'], time() + 3600);
+            setcookie('username', $_POST['username'], time() + 3600);
              header("Location: index.php");
         }
 
