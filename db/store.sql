@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2023 at 12:05 AM
+-- Generation Time: Feb 12, 2023 at 11:19 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -115,6 +115,14 @@ CREATE TABLE `role` (
   `RoleName` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `role`
+--
+
+INSERT INTO `role` (`RoleId`, `RoleName`) VALUES
+(1, 'Admin'),
+(2, 'Regular');
+
 -- --------------------------------------------------------
 
 --
@@ -124,9 +132,20 @@ CREATE TABLE `role` (
 CREATE TABLE `user` (
   `UserId` int(11) NOT NULL,
   `UserName` varchar(50) DEFAULT NULL,
-  `Password` blob DEFAULT NULL,
-  `RoleId` int(11) DEFAULT NULL
+  `Password` varchar(60) DEFAULT NULL,
+  `RoleId` int(11) DEFAULT NULL,
+  `NewPassword` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`UserId`, `UserName`, `Password`, `RoleId`, `NewPassword`) VALUES
+(6, 'Stefan', '123', NULL, 1),
+(7, 'Milan&quot;', '123', NULL, 0),
+(8, 'Maja', '$2y$10$RjREarTLO3vUdJ./ItUapONN1uHxv.EqqojV/P9IBqjEFjkcTGz3W', NULL, 1),
+(9, 'Janko', '$2y$10$0Rgjt9v1E4LWUDk77X6EfuL7Z/LMscKKW/KZ0BlRE2Z/Mt1yT/Ukm', NULL, 1);
 
 --
 -- Indexes for dumped tables
@@ -217,13 +236,13 @@ ALTER TABLE `lager`
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `RoleId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `RoleId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

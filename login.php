@@ -17,6 +17,7 @@
             <input type="password" name="password" placeholder="Password" required>
             <input type="submit" value="LOG IN">
         </form>
+        <p><a href="forgot_password.php">Forgot password?</a></p>
         <p><a href="register.php">REGISTER</a></p>
     </div>
 

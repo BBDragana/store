@@ -21,11 +21,11 @@
             setcookie('username', $username, time() + 3600);
             header("Location: index.php");
 
-        
+          $db->close();
         }
         else{
         header("Location: account_already_exists.php");            
         }
 
-            $db->close();
+          
     }
