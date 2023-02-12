@@ -2,7 +2,7 @@
     if(isset($_POST['username'])){
         $db = new mysqli("localhost", "root", "", "store");
         $username = htmlspecialchars($_POST["username"], ENT_QUOTES);
-        $password = htmlspecialchars($_POST["password"], ENT_QUOTES);
+        $password = password_hash(htmlspecialchars($_POST["password"], ENT_QUOTES), PASSWORD_DEFAULT);
 
         $sql_query = 
                  "SELECT `UserName` 
@@ -29,5 +29,3 @@
 
             $db->close();
     }
-    
-?>
