@@ -8,6 +8,10 @@ switch ($_SERVER["SCRIPT_NAME"]) {
 		$CURRENT_PAGE = "Contact";
 		$PAGE_TITLE = "Contact Us";
 		break;
+	case "/projects/store.git/new_password_requests":
+			$CURRENT_PAGE = "Password_reset_request";
+			$PAGE_TITLE = "Password reset request";
+			break;
 	case "/projects/store.git/login.php":
 	case "/projects/store.git/incorect_username_or_password.php":
 		$CURRENT_PAGE = "Login";
@@ -16,6 +20,7 @@ switch ($_SERVER["SCRIPT_NAME"]) {
 	default:
 		$CURRENT_PAGE = "Index";
 		$PAGE_TITLE = "Welcome to my store!";
+
 }
 
 ?>
