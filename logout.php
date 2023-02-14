@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['RoleId'] = 0;
+session_unset();
 if (isset($_COOKIE['username'])) {
     setcookie('username', '', time() - 3600);
 }

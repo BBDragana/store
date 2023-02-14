@@ -26,6 +26,7 @@ if (isset($_POST['username'])) {
         }
         setcookie('username', $username, time() + 3600);
         $_SESSION['RoleId'] = $response_value['RoleId'];
+        $_SESSION['UserName'] = $username;
         header("Location: index.php");
     } else {
         header("Location: incorect_username_or_password.php");

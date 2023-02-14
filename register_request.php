@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_POST['username'])) {
     $db = new mysqli("localhost", "root", "", "store");
     $username = htmlspecialchars($_POST["username"], ENT_QUOTES);
@@ -15,19 +16,23 @@ if (isset($_POST['username'])) {
         $sql_query =
             "SELECT COUNT(UserId) FROM `user`";
         $response = $db->query($sql_query);
+        $roleId = 0;
         if ($response->fetch_assoc()["COUNT(UserId)"] == 0) {
-            $sql_query =
-                "INSERT INTO `user` (`UserName`,`Password`, `RoleId`) 
-             VALUES ('$username', '$password', 1)";
+            $roleId = 1;
         } else {
-            $sql_query =
-                "INSERT INTO `user` (`UserName`,`Password`, `RoleId`) 
-             VALUES ('$username', '$password', 2)";
+            $roleId = 2;
+        }
+        $sql_query =
+            "INSERT INTO `user` (`UserName`,`Password`, `RoleId`) 
+     VALUES ('$username', '$password', '$roleId')";
+
+        $response = $db->query($sql_query);
+        if ($response) {
+            setcookie('username', $username, time() + 3600);
+            $_SESSION['RoleId'] = $roleId;
+            $_SESSION['UserName'] = $username;
         }
 
-        $db->query($sql_query);
-
-        setcookie('username', $username, time() + 3600);
         header("Location: index.php");
     } else {
         header("Location: account_already_exists.php");
