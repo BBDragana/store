@@ -1,5 +1,6 @@
 <?php
-if (isset($_GET['id'])) {
+session_start();
+if (isset($_GET['id']) && $_SESSION['RoleId'] == 1) {
 
     $db = new mysqli("localhost", "root", "", "store");
     $sql_query =
