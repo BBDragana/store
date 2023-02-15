@@ -4,10 +4,14 @@ switch ($_SERVER["SCRIPT_NAME"]) {
 		$CURRENT_PAGE = "About";
 		$PAGE_TITLE = "About Us";
 		break;
-	case "/php-template/contact.php":
-		$CURRENT_PAGE = "Contact";
-		$PAGE_TITLE = "Contact Us";
+	case "/projects/store.git/article_list.php":
+		$CURRENT_PAGE = "Article";
+		$PAGE_TITLE = "Article";
 		break;
+		case "/projects/store.git/employee_list.php":
+			$CURRENT_PAGE = "Employee";
+			$PAGE_TITLE = "Employee";
+			break;
 	case "/projects/store.git/new_password_requests":
 			$CURRENT_PAGE = "Password_reset_request";
 			$PAGE_TITLE = "Password reset request";

@@ -3,8 +3,6 @@
 
         include 'includes/a_connection.php';
         $db = OpenCon();
-        
-        //$db = new mysqli("localhost", "root", "", "store");
 
         $sql_query = "SELECT Code FROM article WHERE Code ='$_POST[Code]'";
         $response = $db->query($sql_query);
