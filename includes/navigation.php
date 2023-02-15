@@ -16,6 +16,10 @@ session_start();
 
 			<li class="nav-item">
 				<a class="nav-link <?php if ($CURRENT_PAGE == "Employee") { ?>active<?php } ?>" href="employee_list.php">Employee</a>
+			
+			</li>
+			<li class="nav-item">
+				<a class="nav-link <?php if ($CURRENT_PAGE == "Lager") { ?>active<?php } ?>" href="lager_list.php">Lager</a>
 			</li>
 		<?php
 			if (array_key_exists('RoleId', $_SESSION) && $_SESSION['RoleId'] == 1) {
@@ -28,9 +32,7 @@ session_start();
 			}
 			?>
 
-			<li class="nav-item">
-				<a class="nav-link <?php if ($CURRENT_PAGE == "Contact") { ?>active<?php } ?>" href="contact.php">Check</a>
-			</li>
+			
 			
 		<?php
 		}
