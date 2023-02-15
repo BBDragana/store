@@ -1,8 +1,14 @@
 <?php
 session_start();
+function login($username, $roleId){
+    setcookie('username', $username, time() + 3600);
+        $_SESSION['RoleId'] = $roleId;
+        $_SESSION['UserName'] = $username;
+        header("Location: index.php");
+}
 if (isset($_POST['username'])) {
-
-    $db = new mysqli("localhost", "root", "", "store");
+    include 'includes/a_connection.php';
+    $db = OpenCon();
     $username = htmlspecialchars($_POST["username"], ENT_QUOTES);
     $password = htmlspecialchars($_POST["password"], ENT_QUOTES);
     $sql_query =
@@ -21,19 +27,21 @@ if (isset($_POST['username'])) {
                 SET `Password` = '$password_hash'
                 WHERE `UserName` = '$username'";
             $response = $db->query($sql_query);
+            login($username, $response_value['RoleId']);
         } else if (!password_verify($password, $password_from_db)) {
             header("Location: incorect_username_or_password.php");
         }
-        setcookie('username', $username, time() + 3600);
-        $_SESSION['RoleId'] = $response_value['RoleId'];
-        $_SESSION['UserName'] = $username;
-        header("Location: index.php");
-    } else {
+        else {
+            login($username, $response_value['RoleId']);
+        }
+        
+        
+    } else { 
         header("Location: incorect_username_or_password.php");
     }
 
 
 
 
-    $db->close();
+    CloseCon($db);
 }

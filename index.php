@@ -1,4 +1,5 @@
-<?php include("includes/a_config.php"); ?>
+<?php 
+include("includes/a_config.php"); ?>
 <!DOCTYPE html>
 <html>
 
@@ -38,7 +39,11 @@
 		<?php
 		}
 		?>
-
+<?php
+if (isset($_SESSION['RoleId'])) {
+	header("Location: article_list.php");
+}
+?>
 
 
 		<?php include("includes/footer.php"); ?>

@@ -1,7 +1,8 @@
 <?php
 session_start();
 if (isset($_POST['username'])) {
-    $db = new mysqli("localhost", "root", "", "store");
+    include 'includes/a_connection.php';
+    $db = OpenCon();
     $username = htmlspecialchars($_POST["username"], ENT_QUOTES);
     $password = password_hash(htmlspecialchars($_POST["password"], ENT_QUOTES), PASSWORD_DEFAULT);
 
@@ -37,5 +38,5 @@ if (isset($_POST['username'])) {
     } else {
         header("Location: account_already_exists.php");
     }
-    $db->close();
+    CloseCon($db);
 }

@@ -11,12 +11,13 @@
 
 <div class="container" id="main-content">
 <?php
-$connection = new mysqli("localhost", "root", "", "store");
+  include 'includes/a_connection.php';
+  $db = OpenCon();
 
 $sql_query =
 "SELECT `UserName`, `UserId` FROM `user` WHERE `NewPassword` = 1";
 
-$result = $connection->query($sql_query);
+$result = $db->query($sql_query);
 
 if ($result->num_rows > 0) {
 ?>
@@ -33,6 +34,7 @@ if ($result->num_rows > 0) {
     }
     
 }
+CloseCon($db);
     ?>
     </table>
 </div>

@@ -1,6 +1,7 @@
 <?php
 if (isset($_POST['username'])) {
-    $db = new mysqli("localhost", "root", "", "store");
+    include 'includes/a_connection.php';
+    $db = OpenCon();
     $username = htmlspecialchars($_POST["username"], ENT_QUOTES);
 
     $sql_query =
@@ -10,7 +11,7 @@ if (isset($_POST['username'])) {
 
     $db->query($sql_query);
 
-    $db->close();
+    CloseCon($db);
 }
 
 header("Location: index.php");
