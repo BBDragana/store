@@ -49,6 +49,7 @@ include("includes/a_config.php"); ?>
             }
             ?>
         </table>
+
         <?php
         if ($result->num_rows == 0) {
             echo "There are no check to display!";
@@ -61,7 +62,6 @@ include("includes/a_config.php"); ?>
 
 
     <?php include("includes/footer.php"); ?>
-
 </body>
 
 </html>
