@@ -1,0 +1,39 @@
+div.jumbotron{
+    display: flex;
+
+}
+
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 184px;
+    left: 0;
+    background-color:rgb(199, 230, 230);
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .sidenav ul {
+    padding: 6px 8px 6px 8px;
+    text-decoration: none;
+    font-size: 25px;
+    color:white;
+    display: block;
+  }
+  
+  .sidenav ul:hover {
+    color: #7d7785;
+  }
+  
+  #main-content {
+    margin-left: 160px; 
+    font-size: 28px; 
+    padding: 0px 10px;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }

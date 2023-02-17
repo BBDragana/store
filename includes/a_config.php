@@ -25,6 +25,10 @@ switch ($_SERVER["SCRIPT_NAME"]) {
 		$CURRENT_PAGE = "Login";
 		$PAGE_TITLE = "Login";
 		break;
+		case "/projects/store.git/check_list.php":
+			$CURRENT_PAGE = "Check";
+			$PAGE_TITLE = "Check";
+			break;
 	default:
 		$CURRENT_PAGE = "Index";
 		$PAGE_TITLE = "Welcome to my store!";
