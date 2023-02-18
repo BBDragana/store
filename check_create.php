@@ -34,8 +34,6 @@
             <button type="submit">ADD ARTICLE ON CHECK</button>
         </form>
     </div>
-
-    <!-- odavde je ispravljeno  -->
     <table>
         <tr>
             <th>ArticleId</th>
@@ -44,10 +42,10 @@
         </tr>
         <tbody id="check_items">
         </tbody>
-
-
-
     </table>
+ <a href="check_list.php">Quit</a>
+ <a href="check_details.php">Details</a>
+ 
 
     <?php CloseCon($db); ?>
     </div>

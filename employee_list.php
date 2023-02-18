@@ -12,7 +12,7 @@ include("includes/a_config.php"); ?>
   <?php include("includes/design-top.php"); ?>
   <?php include("includes/navigation.php"); ?>
 
-  <div class="container" id="main-content">
+  <div class="content">
     <?php
     include 'includes/a_connection.php';
     $db = OpenCon();
@@ -23,6 +23,7 @@ include("includes/a_config.php"); ?>
 
     if ($result->num_rows > 0) {
     ?>
+    <div class="table-cont">
       <table>
         <th>Employee Id</th>
         <th>First Name</th>
@@ -64,13 +65,18 @@ include("includes/a_config.php"); ?>
       }
       ?>
       </table>
+       <div class="logout">
+    <a href="logout.php">LOG OUT</a>
+  </div>
+    </div>
       <?php
       if ($result->num_rows == 0) {
         echo "There are no employee to display!";
       }
       ?>
+     
   </div>
-
+  
   <?php include("includes/footer.php"); ?>
 
 </body>

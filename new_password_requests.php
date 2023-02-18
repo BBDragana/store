@@ -1,45 +1,50 @@
-<?php include("includes/a_config.php");?>
+<?php include("includes/a_config.php"); ?>
 <!DOCTYPE html>
 <html>
+
 <head>
-	<?php include("includes/head-tag-contents.php");?>
+    <?php include("includes/head-tag-contents.php"); ?>
 </head>
+
 <body>
 
-<?php include("includes/design-top.php");?>
-<?php include("includes/navigation.php");?>
+    <?php include("includes/design-top.php"); ?>
+    <?php include("includes/navigation.php"); ?>
 
-<div class="container" id="main-content">
-<?php
-  include 'includes/a_connection.php';
-  $db = OpenCon();
+    <div class="content">
+        <?php
+        include 'includes/a_connection.php';
+        $db = OpenCon();
 
-$sql_query =
-"SELECT `UserName`, `UserId` FROM `user` WHERE `NewPassword` = 1";
+        $sql_query =
+            "SELECT `UserName`, `UserId` FROM `user` WHERE `NewPassword` = 1";
 
-$result = $db->query($sql_query);
+        $result = $db->query($sql_query);
 
-if ($result->num_rows > 0) {
-?>
-    <table>
-        <th>UserName</th>
-        <th></th>
-       
-    <?php
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row['UserName'] . "</td>";
-        echo "<td><a href=reset_password_request.php?id='" . $row['UserId'] . "'>Reset password</a></td>";
-        echo "</tr>";
-    }
-    
-}
-CloseCon($db);
-    ?>
-    </table>
-</div>
+        if ($result->num_rows > 0) {
+        ?>
+            <table>
+                <th>UserName</th>
+                <th></th>
 
-<?php include("includes/footer.php");?>
+            <?php
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row['UserName'] . "</td>";
+                echo "<td><a href=reset_password_request.php?id='" . $row['UserId'] . "'>Reset password</a></td>";
+                echo "</tr>";
+            }
+        }
+        CloseCon($db);
+            ?>
+            </table>
+            <div class="logout">
+                <a href="logout.php">LOG OUT</a>
+            </div>
+    </div>
+
+    <?php include("includes/footer.php"); ?>
 
 </body>
+
 </html>

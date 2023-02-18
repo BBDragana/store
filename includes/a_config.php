@@ -16,7 +16,7 @@ switch ($_SERVER["SCRIPT_NAME"]) {
 		$CURRENT_PAGE = "Lager";
 		$PAGE_TITLE = "Lager";
 		break;
-	case "/projects/store.git/new_password_requests":
+	case "/projects/store.git/new_password_requests.php":
 		$CURRENT_PAGE = "Password_reset_request";
 		$PAGE_TITLE = "Password reset request";
 		break;

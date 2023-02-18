@@ -11,7 +11,7 @@
     <?php include("includes/design-top.php"); ?>
     <?php include("includes/navigation.php"); ?>
 
-    <div class="container" id="main-content">
+    <div class="content">
 
         <?php
         include 'includes/a_connection.php';
@@ -24,6 +24,7 @@
 
         if ($result->num_rows > 0) {
         ?>
+        <div class="table-cont">
             <table>
                 <th>ArticleId</th>
                 <th>Code</th>
@@ -58,6 +59,10 @@
             }
             ?>
             </table>
+         <div class="logout">
+                    <a href="logout.php">LOG OUT</a>
+            </div>
+        </div>
             <?php
             if ($result->num_rows == 0) {
                 echo "There are no article to display!";
@@ -66,11 +71,7 @@
             CloseCon($db);
             ?>
 
-            <div>
-                <button>
-                    <a href="logout.php">LOG OUT</a>
-                </button>
-            </div>
+           
 
     </div>
 

@@ -1,39 +1,113 @@
-div.jumbotron{
-    display: flex;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+.sidebar a.link-item {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.sidebar a.active {
+    background-color: #e97d3e7c;
+    color: rgb(31, 30, 30);
+}
+
+.sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: rgb(253, 249, 249);
+}
+
+div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 85%;
+    position: relative;
+}
+
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar a {
+        float: left;
+    }
+
+    div.content {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+}
+
+div.table-cont {
+    overflow-x: auto;
 
 }
 
-.sidenav {
-    height: 100%;
-    width: 160px;
-    position: fixed;
-    z-index: 1;
-    top: 184px;
-    left: 0;
-    background-color:rgb(199, 230, 230);
-    overflow-x: hidden;
-    padding-top: 20px;
-  }
-  
-  .sidenav ul {
-    padding: 6px 8px 6px 8px;
-    text-decoration: none;
-    font-size: 25px;
-    color:white;
-    display: block;
-  }
-  
-  .sidenav ul:hover {
-    color: #7d7785;
-  }
-  
-  #main-content {
-    margin-left: 160px; 
-    font-size: 28px; 
-    padding: 0px 10px;
-  }
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 80%;
+    border: 1px solid #ddd;
+}
 
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
+th,
+td {
+    text-align: left;
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: hwb(44 86% 2% / 0.788)
+}
+
+
+div.logout {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: #e97d3e7c;
+    color: white;
+    height: 50px;
+    width: 100px;
+    padding: 10px;
+}
+
+.title-conteiner {
+    display: flex;
+    margin: auto;
+    height: 15%;
+    width: 100%;
+
+}
+
+.title-conteiner h1 {
+    border: rgb(170, 164, 164) solid 1px;
+    box-shadow: 5px 0px 59px 6px rgb(211 208 208);
+    width: 100%;
+    font-size: 1.8rem;
+    padding: 1%;
+    padding-left: 0.5;
+}

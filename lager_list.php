@@ -12,7 +12,7 @@ include("includes/a_config.php"); ?>
     <?php include("includes/design-top.php"); ?>
     <?php include("includes/navigation.php"); ?>
 
-    <div class="container" id="main-content">
+    <div class="content">
         <?php
         include 'includes/a_connection.php';
         $db = OpenCon();
@@ -29,30 +29,34 @@ include("includes/a_config.php"); ?>
             <?php
             }
             ?>
+            <div class="table-cont">
+                <table>
+                    <th>Lager Id</th>
+                    <th>Article Name</th>
+                    <th>Available Quantity</th>
+                    <th>Location</th>
 
-            <table>
-                <th>Lager Id</th>
-                <th>Article Name</th>
-                <th>Available Quantity</th>
-                <th>Location</th>
-
-                <?php
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row['LagerId'] . "</td>";
-                    echo "<td>" . $row['Name'] . "</td>";
-                    echo "<td>" . $row['AvailableQuantity'] . "</td>";
-                    echo "<td>" . $row['Location'] . "</td>";
-                ?>
-                <?php
-                    if ($_SESSION['RoleId'] == 1) {
-                        echo "<td><a href=lager_edit.php?id='" . $row['LagerId'] . "'>Edit</a></td>";
-                        echo "<td><a href=lager_delete.php?id=" . $row['LagerId'] . ">Delete</a></td>";
+                    <?php
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $row['LagerId'] . "</td>";
+                        echo "<td>" . $row['Name'] . "</td>";
+                        echo "<td>" . $row['AvailableQuantity'] . "</td>";
+                        echo "<td>" . $row['Location'] . "</td>";
+                    ?>
+                    <?php
+                        if ($_SESSION['RoleId'] == 1) {
+                            echo "<td><a href=lager_edit.php?id='" . $row['LagerId'] . "'>Edit</a></td>";
+                            echo "<td><a href=lager_delete.php?id=" . $row['LagerId'] . ">Delete</a></td>";
+                        }
+                        echo "</tr>";
                     }
-                    echo "</tr>";
-                }
-                ?>
-            </table>
+                    ?>
+                </table>
+                <div class="logout">
+                    <a href="logout.php">LOG OUT</a>
+                </div>
+            </div>
         <?php
         }
         ?>
@@ -60,7 +64,9 @@ include("includes/a_config.php"); ?>
         if ($result->num_rows == 0) {
             echo "There are no lager to display!";
         }
+
         ?>
+
     </div>
 
     <?php include("includes/footer.php"); ?>

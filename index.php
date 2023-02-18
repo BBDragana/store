@@ -19,22 +19,16 @@ include("includes/a_config.php"); ?>
 		if (isset($_COOKIE['username'])) {
 		?>
 			<div>
-				<button>
 					<a href="logout.php">LOG OUT</a>
-				</button>
 			</div>
 		<?php
 		} else {
 		?>
 			<div>
-				<button>
 					<a href="login.php">LOG IN</a>
-				</button>
 			</div>
 			<div>
-				<button>
 					<a href="register.php">REGISTER</a>
-				</button>
 			</div>
 		<?php
 		}

@@ -12,7 +12,7 @@ include("includes/a_config.php"); ?>
     <?php include("includes/design-top.php"); ?>
     <?php include("includes/navigation.php"); ?>
 
-    <div class="container" id="main-content">
+    <div class="content">
         <?php
         include 'includes/a_connection.php';
         $db = OpenCon();
@@ -26,7 +26,7 @@ include("includes/a_config.php"); ?>
         <?php
 
         ?>
-
+<div class="table-cont">
         <table>
             <th>CheckId</th>
             <th>EmployeeIdIssue</th>
@@ -49,15 +49,16 @@ include("includes/a_config.php"); ?>
             }
             ?>
         </table>
-
+        <div class="logout">
+            <a href="logout.php">LOG OUT</a>
+        </div>
+        </div>
         <?php
         if ($result->num_rows == 0) {
             echo "There are no check to display!";
         }
         ?>
-        <div>
-            <a href="logout.php">LOG OUT</a>
-        </div>
+        
     </div>
 
 
