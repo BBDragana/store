@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2023 at 11:19 PM
+-- Generation Time: Feb 18, 2023 at 11:49 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -41,7 +41,17 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`ArticleId`, `Code`, `Name`, `Unit`, `BarCode`, `PLU_COD`) VALUES
-(2, '123', 'test', '1', NULL, NULL);
+(3, 'peti', 'xxx', 'xx', 'xx', ''),
+(4, '777', 'Test2', '5', '888', '25'),
+(5, '1', '1', '1', '1', '1'),
+(6, '2', '2', '2', '2', '2'),
+(7, '5', '5', '5', '5', '5'),
+(8, '9', 'h', 'h', 'h', 'h'),
+(9, 'cc', 'cc', 'cc', 'cc', 'cc'),
+(10, 'zzz', 'zzzzz', 'zz', '', ''),
+(11, 'treci3', 'bb', 'bb', '', 'bb'),
+(12, '1', 'jabuka', 'kg', '11', '111'),
+(13, '1', 'banana', 'kg', '22', '222');
 
 -- --------------------------------------------------------
 
@@ -58,6 +68,13 @@ CREATE TABLE `check` (
   `TaxAmount` decimal(18,2) DEFAULT NULL,
   `AmountWithoutTax` decimal(18,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `check`
+--
+
+INSERT INTO `check` (`CheckId`, `EmployeeIdIssue`, `CheckData`, `CheckNumber`, `TotalAmount`, `TaxAmount`, `AmountWithoutTax`) VALUES
+(2, 3, '2023-02-14 16:16:37', '1', '100.00', '17.00', '83.00');
 
 -- --------------------------------------------------------
 
@@ -86,10 +103,21 @@ CREATE TABLE `employee` (
   `PhoneNumber` varchar(50) DEFAULT NULL,
   `Address` varchar(100) DEFAULT NULL,
   `City` varchar(50) DEFAULT NULL,
-  `Email` varbinary(100) DEFAULT NULL,
+  `Email` varchar(100) DEFAULT NULL,
   `JMBG` char(13) DEFAULT NULL,
   `UserId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`EmployeeId`, `FirstName`, `LastName`, `PhoneNumber`, `Address`, `City`, `Email`, `JMBG`, `UserId`) VALUES
+(1, 'Stefan', 'B', '00000551', 'daf', 'dfsgvb', '0xsvgb@gmail.com', '1111111111111', 13),
+(2, 'Dragana', 'b', '1112555', 'hgiguoviv', 'bkviycv', 'bkh.@gmail.com', '1111111111111', 14),
+(3, 'Ana', 'nn5555555555', 'nnnn', 'nn', 'njjn', 'ann@gmail.com', '8522222226', 28),
+(4, 'HANA', 'nnnnnnn', 'jjjjjjjj', 'jgggggggggg', 'gggggg', 'gggggg', 'gggg111111111', 22),
+(5, 'filip', 'jkl', 'llh', 'lhkbhl', 'lhl', 'lhl', 'lhl2111111111', 22);
 
 -- --------------------------------------------------------
 
@@ -103,6 +131,14 @@ CREATE TABLE `lager` (
   `AvailableQuantity` decimal(18,2) DEFAULT NULL,
   `Location` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `lager`
+--
+
+INSERT INTO `lager` (`LagerId`, `ArticleId`, `AvailableQuantity`, `Location`) VALUES
+(1, 4, '55.00', 'bl'),
+(6, 10, '4.00', 'j');
 
 -- --------------------------------------------------------
 
@@ -142,10 +178,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`UserId`, `UserName`, `Password`, `RoleId`, `NewPassword`) VALUES
-(6, 'Stefan', '123', NULL, 1),
-(7, 'Milan&quot;', '123', NULL, 0),
-(8, 'Maja', '$2y$10$RjREarTLO3vUdJ./ItUapONN1uHxv.EqqojV/P9IBqjEFjkcTGz3W', NULL, 1),
-(9, 'Janko', '$2y$10$0Rgjt9v1E4LWUDk77X6EfuL7Z/LMscKKW/KZ0BlRE2Z/Mt1yT/Ukm', NULL, 1);
+(13, 'Stefan', '$2y$10$9.xnX1.krdyFpndHhnL9k.bNJJr6vXIbTl6ZSZ2MHrqF/cPGIlkeq', 1, 0),
+(14, 'Milan', '$2y$10$eYNgRAbg/r6EOmi6Y/UmH.qqlhVm1Hnh9ZD4jHLTqERH.66w9ojCi', 2, 0),
+(22, 'Marko', '123', 2, 0),
+(25, 'Luka', '$2y$10$WM.eK9bKwaI/omYDKQXpM.SxA3wTFoIrWoryjPiJyWGS4ry/MsNtm', 2, 0),
+(26, 'Pero', '$2y$10$jzLgD4ONx6Oe10a68CLFuOe6yoIKr3SKCyP5FGWtnQYX1Xog8j/SG', 2, 0),
+(27, 'stela', '$2y$10$F21ysngbJd4EesjPbyRCEOzDMRiHo0U7.CyR5SissFYnYmNhVXNge', 2, 0),
+(28, 'ana', '$2y$10$c5/pgSZqkNZHLu8VoE0YEeRSDL/VTagvsnV6cPH.WKtMkomkA/6DW', 2, 0);
 
 --
 -- Indexes for dumped tables
@@ -168,7 +207,7 @@ ALTER TABLE `check`
 -- Indexes for table `checkitem`
 --
 ALTER TABLE `checkitem`
-  ADD PRIMARY KEY (`CheckId`),
+  ADD PRIMARY KEY (`CheckId`,`ItemID`),
   ADD KEY `fk_article` (`ArticleId`);
 
 --
@@ -206,13 +245,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `ArticleId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ArticleId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `check`
 --
 ALTER TABLE `check`
-  MODIFY `CheckId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `CheckId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `checkitem`
@@ -224,13 +263,13 @@ ALTER TABLE `checkitem`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `EmployeeId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `EmployeeId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `lager`
 --
 ALTER TABLE `lager`
-  MODIFY `LagerId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `LagerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -242,7 +281,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Constraints for dumped tables
@@ -258,8 +297,8 @@ ALTER TABLE `check`
 -- Constraints for table `checkitem`
 --
 ALTER TABLE `checkitem`
-  ADD CONSTRAINT `fk_article` FOREIGN KEY (`ArticleId`) REFERENCES `article` (`ArticleId`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_check` FOREIGN KEY (`CheckId`) REFERENCES `check` (`CheckId`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fk_article` FOREIGN KEY (`ArticleId`) REFERENCES `article` (`ArticleId`),
+  ADD CONSTRAINT `fk_check` FOREIGN KEY (`CheckId`) REFERENCES `check` (`CheckId`);
 
 --
 -- Constraints for table `employee`
