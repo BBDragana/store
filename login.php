@@ -21,8 +21,6 @@
         <p><a href="register.php">REGISTER</a></p>
     </div>
 
-    <?php include("includes/footer.php"); ?>
-
 </body>
 
 </html>

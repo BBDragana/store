@@ -21,8 +21,6 @@
     <p><a href="login.php">LOG IN</a></p>
     </div>
 
-    <?php include("includes/footer.php"); ?>
-
 </body>
 
 </html>

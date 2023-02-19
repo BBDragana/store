@@ -14,7 +14,7 @@ function write_table() {
     var tbody = document.getElementById("check_items");
     tbody.innerHTML= "";
     for (var i = 0; i < check_items.length; i++) {
-        tbody.innerHTML+="<tr><td>"+ check_items[i].ArticleId+"</td><td>"+check_items[i].Quantity+"</td><td>"+check_items[i].Price+"</td></tr>";
+        tbody.innerHTML+="<tr><td>"+ articles[check_items[i].ArticleId]+"</td><td>"+check_items[i].Quantity+"</td><td>"+check_items[i].Price+"</td></tr>";
 
     }
 }

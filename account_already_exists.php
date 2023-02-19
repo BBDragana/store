@@ -17,8 +17,6 @@
         <p><a href="register.php">Register.</a></p>
     </div>
 
-    <?php include("includes/footer.php"); ?>
-
 </body>
 
 </html>

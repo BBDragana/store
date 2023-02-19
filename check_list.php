@@ -60,9 +60,6 @@ include("includes/a_config.php"); ?>
         ?>
         
     </div>
-
-
-    <?php include("includes/footer.php"); ?>
 </body>
 
 </html>

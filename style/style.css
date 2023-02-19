@@ -35,7 +35,7 @@ div.content {
     margin-left: 200px;
     padding: 1px 16px;
     height: 85%;
-    position: relative;
+    overflow: auto;
 }
 
 @media screen and (max-width: 700px) {
@@ -71,6 +71,7 @@ table {
     border-spacing: 0;
     width: 80%;
     border: 1px solid #ddd;
+    padding-top: 1%;
 }
 
 th,
@@ -83,24 +84,22 @@ tr:nth-child(even) {
     background-color: hwb(44 86% 2% / 0.788)
 }
 
-
-div.logout {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    background-color: #e97d3e7c;
-    color: white;
-    height: 50px;
-    width: 100px;
-    padding: 10px;
-}
-
 .title-conteiner {
     display: flex;
     margin: auto;
     height: 15%;
     width: 100%;
-
+    position: relative;
+   
+}
+div.logout {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    height: 50px;
+    width: 100px;
+    padding: 10px;
 }
 
 .title-conteiner h1 {
@@ -110,4 +109,8 @@ div.logout {
     font-size: 1.8rem;
     padding: 1%;
     padding-left: 0.5;
+    background-color: #f1f1f1;
+}
+div.form-content{ 
+    overflow-x: auto;
 }

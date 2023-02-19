@@ -39,9 +39,6 @@ if (isset($_SESSION['RoleId'])) {
 }
 ?>
 
-
-		<?php include("includes/footer.php"); ?>
-
 </body>
 
 </html>
