@@ -21,7 +21,6 @@ function write_table() {
 
 function postToDetails() {
     document.body.innerHTML += `<form id="dynForm" action="check_details.php" method="post">
-    <input type="hidden" name="articles" value='` + JSON.stringify(articles) + `'>
     <input type="hidden" name="check_items" value='` + JSON.stringify(check_items) + `'>
     </form>`;
     document.getElementById("dynForm").submit();

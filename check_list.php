@@ -22,7 +22,7 @@ include("includes/a_config.php"); ?>
         $result = $db->query($sql);
 
         ?>
-        <a href="check_create.php">CREATE NEW CHECK</a>
+        <a id="add_new" href="check_create.php">CREATE NEW CHECK</a>
         <?php
 
         ?>

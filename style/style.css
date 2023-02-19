@@ -71,7 +71,7 @@ table {
     border-spacing: 0;
     width: 80%;
     border: 1px solid #ddd;
-    padding-top: 1%;
+    padding-top: 2%;
 }
 
 th,
@@ -113,4 +113,31 @@ div.logout {
 }
 div.form-content{ 
     overflow-x: auto;
+}
+
+#add_new {
+    border: solid black 1.5px;
+    border-radius: 1%;
+    font-size: large;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.form_add {
+    width: 80%;
+    padding-top: 2%;
+}
+.form_add input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+.check_create_butt {
+    border: solid black 1.5px;
+    border-radius: 1%;
+    font-size: large;
+    padding-left: 2%;
+    padding-right: 2%;
 }

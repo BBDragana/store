@@ -60,7 +60,7 @@ include("includes/a_config.php"); ?>
 
       if ($_SESSION['RoleId'] == 1) {
       ?>
-        <a href="employee_add.php">ADD NEW EMPLOYEE</a>
+        <a id="add_new" href="employee_add.php">ADD NEW EMPLOYEE</a>
       <?php
       }
       ?>

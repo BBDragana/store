@@ -10,7 +10,7 @@
 <?php include("includes/navigation.php");?>
 
 <div class="container" id="main-content">
-<form action="employee_add_request.php" method="post">
+<form class="form_add" action="employee_add_request.php" method="post">
             <input name='EmployeeId' type='text' placeholder='EmployeeId' hidden>
             <input name='FirstName' type='text' placeholder='FirstName' required>
             <input name='LastName' type='text' placeholder='LastName' required>

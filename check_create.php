@@ -28,14 +28,20 @@
             ?>
 
             <div class="form-content">
-                <form id="create_check_item_form" onsubmit="add_item(event)">
+                <form class="form_add" id="create_check_item_form" onsubmit="add_item(event)">
                     <label for='Article'>Article</label>
                     <select id='Article' name='ArticleId'><?php echo $select_options ?></select>
                     <input name='Quantity' type='text' placeholder='Quantity' required>
                     <input name='Price' type='text' placeholder='Price' required>
+                    <br>
+                    <br>
                     <button type="submit">ADD ARTICLE ON CHECK</button>
                 </form>
             </div>
+
+            <br>
+            <br>
+
             <table>
                 <tr>
                     <th>Article</th>
@@ -45,9 +51,13 @@
                 <tbody id="check_items">
                 </tbody>
             </table>
-            <a href="check_list.php">Quit</a>
+            <br>
+            <br>
+            <button class="check_create_butt">
+            <a  href="check_list.php">Quit</a>
+            </button>
             <!-- <a href="check_details.php">Details</a> -->
-            <button onclick='postToDetails()'>Details</button>
+            <button class="check_create_butt" onclick='postToDetails()'>Details</button>
             <?php CloseCon($db); ?>
         </div>
         <script>

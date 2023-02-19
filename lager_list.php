@@ -25,7 +25,7 @@ include("includes/a_config.php"); ?>
         if ($result->num_rows > 0) {
             if ($_SESSION['RoleId'] == 1) {
         ?>
-                <a href="lager_add.php">ADD NEW LAGER</a>
+                <a id="add_new" href="lager_add.php">ADD NEW LAGER</a>
             <?php
             }
             ?>

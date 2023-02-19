@@ -33,7 +33,7 @@
     CloseCon($db);
   echo "
     <div class='container' id='main-content'>
-        <form action='lager_add_request.php' method='post'>
+        <form class='form_add' action='lager_add_request.php' method='post'>
         <label for='Article'>Article</label>    
         <select id='Article' name='ArticleId'>" . $select_options . "</select>
             <!-- <input name='LagerId' type='text' placeholder='LagerId'> -->

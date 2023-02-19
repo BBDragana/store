@@ -54,7 +54,7 @@
             <?php
             if ($_SESSION['RoleId'] == 1) {
             ?>
-                <a href="article_add.php">ADD NEW ARTICLE</a>
+                <a id="add_new" href="article_add.php"> ADD NEW ARTICLE </a>
             <?php
             }
             ?>
