@@ -11,7 +11,7 @@
     <?php include("includes/design-top.php"); ?>
     <?php include("includes/navigation.php"); ?>
 
-    <div class="container" id="main-content">
+    <div class="content">
  
     <form action="register_request.php" method="post">
             <input name="username" type="text" placeholder="Username" required>

@@ -12,7 +12,7 @@
     <?php include("includes/design-top.php"); ?>
     <?php include("includes/navigation.php"); ?>
 
-    <div class="container" id="main-content">
+    <div class="content">
         <?php
         if (isset($_GET['id'])) {
 

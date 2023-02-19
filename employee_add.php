@@ -9,7 +9,7 @@
 <?php include("includes/design-top.php");?>
 <?php include("includes/navigation.php");?>
 
-<div class="container" id="main-content">
+<div class="content">
 <form class="form_add" action="employee_add_request.php" method="post">
             <input name='EmployeeId' type='text' placeholder='EmployeeId' hidden>
             <input name='FirstName' type='text' placeholder='FirstName' required>

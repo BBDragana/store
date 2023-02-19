@@ -9,7 +9,7 @@
 <?php include("includes/design-top.php");?>
 <?php include("includes/navigation.php");?>
 
-<div class="container" id="main-content">
+<div class="content">
 	<form class="form_add" action="article_add_request.php" method="post">
     <!-- <input  name="ArticleId" type="text"placeholder="ArticleId" required> -->
     <input name="Code"type="text"  placeholder="Code" required>

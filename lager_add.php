@@ -32,7 +32,7 @@
 
     CloseCon($db);
   echo "
-    <div class='container' id='main-content'>
+    <div class='content'>
         <form class='form_add' action='lager_add_request.php' method='post'>
         <label for='Article'>Article</label>    
         <select id='Article' name='ArticleId'>" . $select_options . "</select>

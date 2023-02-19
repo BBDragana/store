@@ -11,7 +11,7 @@
     <?php include("includes/design-top.php"); ?>
     <?php include("includes/navigation.php"); ?>
 
-    <div class="container" id="main-content">
+    <div class="content" >
 
         <h2>Incorect username or password!</h2>
         <p><a href="login.php">Log in</a></p>

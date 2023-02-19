@@ -35,6 +35,10 @@
                 echo "</tr>";
             }
         }
+        else {
+            echo "<p>There is no password reset requests.</p>";
+        }
+
         CloseCon($db);
             ?>
             </table>

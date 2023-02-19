@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2023 at 11:49 PM
+-- Generation Time: Feb 20, 2023 at 12:02 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -41,17 +41,10 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`ArticleId`, `Code`, `Name`, `Unit`, `BarCode`, `PLU_COD`) VALUES
-(3, 'peti', 'xxx', 'xx', 'xx', ''),
-(4, '777', 'Test2', '5', '888', '25'),
-(5, '1', '1', '1', '1', '1'),
-(6, '2', '2', '2', '2', '2'),
-(7, '5', '5', '5', '5', '5'),
-(8, '9', 'h', 'h', 'h', 'h'),
-(9, 'cc', 'cc', 'cc', 'cc', 'cc'),
-(10, 'zzz', 'zzzzz', 'zz', '', ''),
-(11, 'treci3', 'bb', 'bb', '', 'bb'),
 (12, '1', 'jabuka', 'kg', '11', '111'),
-(13, '1', 'banana', 'kg', '22', '222');
+(13, '1', 'banana', 'kg', '22', '222'),
+(14, '11', 'limun', 'kg', '12', '12'),
+(16, '5', 'lubenica', 'kom', '55', '65');
 
 -- --------------------------------------------------------
 
@@ -62,7 +55,7 @@ INSERT INTO `article` (`ArticleId`, `Code`, `Name`, `Unit`, `BarCode`, `PLU_COD`
 CREATE TABLE `check` (
   `CheckId` int(11) NOT NULL,
   `EmployeeIdIssue` int(11) NOT NULL,
-  `CheckData` datetime NOT NULL,
+  `CheckData` datetime NOT NULL DEFAULT current_timestamp(),
   `CheckNumber` varchar(30) DEFAULT NULL,
   `TotalAmount` decimal(18,2) DEFAULT NULL,
   `TaxAmount` decimal(18,2) DEFAULT NULL,
@@ -74,7 +67,9 @@ CREATE TABLE `check` (
 --
 
 INSERT INTO `check` (`CheckId`, `EmployeeIdIssue`, `CheckData`, `CheckNumber`, `TotalAmount`, `TaxAmount`, `AmountWithoutTax`) VALUES
-(2, 3, '2023-02-14 16:16:37', '1', '100.00', '17.00', '83.00');
+(2, 3, '2023-02-14 16:16:37', '1', '100.00', '17.00', '83.00'),
+(5, 1, '2023-02-19 23:15:11', '123', '14.00', '2.38', '11.62'),
+(6, 1, '2023-02-19 23:15:35', '123', '14.00', '2.38', '11.62');
 
 -- --------------------------------------------------------
 
@@ -89,6 +84,13 @@ CREATE TABLE `checkitem` (
   `Quantity` decimal(18,2) DEFAULT NULL,
   `Price` decimal(18,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `checkitem`
+--
+
+INSERT INTO `checkitem` (`CheckId`, `ItemID`, `ArticleId`, `Quantity`, `Price`) VALUES
+(2, 4, 13, '5.00', '4.00');
 
 -- --------------------------------------------------------
 
@@ -114,10 +116,8 @@ CREATE TABLE `employee` (
 
 INSERT INTO `employee` (`EmployeeId`, `FirstName`, `LastName`, `PhoneNumber`, `Address`, `City`, `Email`, `JMBG`, `UserId`) VALUES
 (1, 'Stefan', 'B', '00000551', 'daf', 'dfsgvb', '0xsvgb@gmail.com', '1111111111111', 13),
-(2, 'Dragana', 'b', '1112555', 'hgiguoviv', 'bkviycv', 'bkh.@gmail.com', '1111111111111', 14),
-(3, 'Ana', 'nn5555555555', 'nnnn', 'nn', 'njjn', 'ann@gmail.com', '8522222226', 28),
-(4, 'HANA', 'nnnnnnn', 'jjjjjjjj', 'jgggggggggg', 'gggggg', 'gggggg', 'gggg111111111', 22),
-(5, 'filip', 'jkl', 'llh', 'lhkbhl', 'lhl', 'lhl', 'lhl2111111111', 22);
+(2, 'Dragana', 'b', '1112555', 'hgiguoviv', 'bkviycv', 'bkh.@gmail.com', '1111111111111', 29),
+(3, 'Ana', 'N', '065656565', 'nn', 'njjn', 'ann@gmail.com', '8522222226', 28);
 
 -- --------------------------------------------------------
 
@@ -137,8 +137,9 @@ CREATE TABLE `lager` (
 --
 
 INSERT INTO `lager` (`LagerId`, `ArticleId`, `AvailableQuantity`, `Location`) VALUES
-(1, 4, '55.00', 'bl'),
-(6, 10, '4.00', 'j');
+(0, 14, '100.00', 'BG'),
+(9, 16, '150.00', 'KV'),
+(10, 13, '200.00', 'BL');
 
 -- --------------------------------------------------------
 
@@ -179,12 +180,14 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`UserId`, `UserName`, `Password`, `RoleId`, `NewPassword`) VALUES
 (13, 'Stefan', '$2y$10$9.xnX1.krdyFpndHhnL9k.bNJJr6vXIbTl6ZSZ2MHrqF/cPGIlkeq', 1, 0),
-(14, 'Milan', '$2y$10$eYNgRAbg/r6EOmi6Y/UmH.qqlhVm1Hnh9ZD4jHLTqERH.66w9ojCi', 2, 0),
+(14, 'Milan', '$2y$10$QwIqqhW90nOFJItpHkY9pu/8gTYc4JzotP6fDTDoWpcZXl8D3fKc2', 2, 0),
 (22, 'Marko', '123', 2, 0),
 (25, 'Luka', '$2y$10$WM.eK9bKwaI/omYDKQXpM.SxA3wTFoIrWoryjPiJyWGS4ry/MsNtm', 2, 0),
 (26, 'Pero', '$2y$10$jzLgD4ONx6Oe10a68CLFuOe6yoIKr3SKCyP5FGWtnQYX1Xog8j/SG', 2, 0),
 (27, 'stela', '$2y$10$F21ysngbJd4EesjPbyRCEOzDMRiHo0U7.CyR5SissFYnYmNhVXNge', 2, 0),
-(28, 'ana', '$2y$10$c5/pgSZqkNZHLu8VoE0YEeRSDL/VTagvsnV6cPH.WKtMkomkA/6DW', 2, 0);
+(28, 'ana', '$2y$10$c5/pgSZqkNZHLu8VoE0YEeRSDL/VTagvsnV6cPH.WKtMkomkA/6DW', 2, 0),
+(29, 'maja', '$2y$10$EQpLQP1B1unYyeXeLJOY9uTu7jK2XH0r493UjcSTFD7.cgi/dFtXi', 2, 0),
+(30, 'Janko', '$2y$10$jR/AdHFMuC0G0dsTxTAzKu3fa4bPouezyCpeS81CKSCgLlgzHgYda', 2, 0);
 
 --
 -- Indexes for dumped tables
@@ -245,31 +248,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `ArticleId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ArticleId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `check`
 --
 ALTER TABLE `check`
-  MODIFY `CheckId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `CheckId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `checkitem`
 --
 ALTER TABLE `checkitem`
-  MODIFY `CheckId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `CheckId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `EmployeeId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `EmployeeId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `lager`
 --
 ALTER TABLE `lager`
-  MODIFY `LagerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `LagerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -281,7 +284,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Constraints for dumped tables

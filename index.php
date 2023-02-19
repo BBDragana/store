@@ -12,7 +12,7 @@ include("includes/a_config.php"); ?>
 	<?php include("includes/design-top.php"); ?>
 	<?php include("includes/navigation.php"); ?>
 
-	<div class="container" id="main-content">
+	<div class="content">
 		<h2>Welcome to my store!</h2>
 
 		<?php
