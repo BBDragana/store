@@ -12,10 +12,18 @@ function add_item(event) {
 
 function write_table() {
     var tbody = document.getElementById("check_items");
-    tbody.innerHTML= "";
+    tbody.innerHTML = "";
     for (var i = 0; i < check_items.length; i++) {
-        tbody.innerHTML+="<tr><td>"+ articles[check_items[i].ArticleId]+"</td><td>"+check_items[i].Quantity+"</td><td>"+check_items[i].Price+"</td></tr>";
+        tbody.innerHTML += "<tr><td>" + articles[check_items[i].ArticleId] + "</td><td>" + check_items[i].Quantity + "</td><td>" + check_items[i].Price + "</td></tr>";
 
     }
+}
+
+function postToDetails() {
+    document.body.innerHTML += `<form id="dynForm" action="check_details.php" method="post">
+    <input type="hidden" name="articles" value='` + JSON.stringify(articles) + `'>
+    <input type="hidden" name="check_items" value='` + JSON.stringify(check_items) + `'>
+    </form>`;
+    document.getElementById("dynForm").submit();
 }
 

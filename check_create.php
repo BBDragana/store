@@ -20,7 +20,7 @@
             $sql_query = "SELECT * FROM article";
             $response = $db->query($sql_query);
             $select_options = "<option value=''></option>";
-            $articles;
+            $articles = [];
             while ($row = $response->fetch_assoc()) {
                 $select_options .= "<option value=" . $row['ArticleId'] . "> " . $row['Code'] . " " . $row['Name'] . " " . $row['Unit'] . " " . $row['BarCode'] . "" . $row['PLU_COD'] . "</option>";
                 $articles[$row['ArticleId']] = $row['Name'];
@@ -46,17 +46,19 @@
                 </tbody>
             </table>
             <a href="check_list.php">Quit</a>
-            <a href="check_details.php">Details</a>
+            <!-- <a href="check_details.php">Details</a> -->
+            <button onclick='postToDetails()'>Details</button>
             <?php CloseCon($db); ?>
         </div>
         <script>
             var articles = {
 
-            <?php
-            foreach(array_keys($articles) as $key){
-               echo $key . ":'" . $articles[$key] . "', ";
-               } ?>
+                <?php
+                foreach (array_keys($articles) as $key) {
+                    echo $key . ":'" . $articles[$key] . "',";
+                } ?>
             };
+
         </script>
         <script src="js/check_create.js"></script>
     </div>
